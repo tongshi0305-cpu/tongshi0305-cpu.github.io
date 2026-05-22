@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PolymerFFKit 中文手册</title>
+  <style>
+    :root{color-scheme:light;--ink:#172033;--muted:#5c6472;--line:#d9dee8;--accent:#007c89;--bg:#f6f8fb;--panel:#ffffff}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",Arial,sans-serif}
+    main{max-width:1080px;margin:0 auto;padding:32px 20px 64px}
+    header{padding:34px 0 24px;border-bottom:1px solid var(--line)}
+    h1{font-size:34px;line-height:1.2;margin:0 0 10px}
+    h2{font-size:24px;margin:34px 0 12px;border-bottom:1px solid var(--line);padding-bottom:8px}
+    h3{font-size:19px;margin:24px 0 8px}
+    p{margin:8px 0 14px}
+    a{color:var(--accent)}
+    .meta{color:var(--muted)}
+    .hero{width:100%;border:1px solid var(--line);border-radius:8px;margin:20px 0;background:#fff}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+    .box{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px}
+    table{border-collapse:collapse;width:100%;background:#fff;margin:12px 0}
+    th,td{border:1px solid var(--line);padding:10px;text-align:left;vertical-align:top}
+    th{background:#eef6f7}
+    code{background:#edf2f7;border:1px solid #d6dee8;border-radius:4px;padding:1px 4px;font-family:Consolas,monospace}
+    pre{overflow:auto;background:#111827;color:#e5edf8;border-radius:8px;padding:14px;font:14px/1.55 Consolas,monospace}
+    ul,ol{padding-left:22px}
+    @media print{body{background:#fff}main{max-width:none;padding:0}a{color:#000}.box{break-inside:avoid}}
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>PolymerFFKit 中文手册</h1>
+    <p class="meta">聚合物力场参数拟合与拓扑构建工具软件 · v1.0.0 · 浙江大学化学系 · <a href="mailto:tongshi@zju.edu.cn">tongshi@zju.edu.cn</a></p>
+  </header>
+
+  <section>
+    <h2>程序简介</h2>
+    <p>PolymerFFKit 是面向高分子分子动力学模拟的交互式工具软件，覆盖轨迹映射、几何参数提取、玻尔兹曼反演拟合、非键参数分配、聚合物序列生成、三维结构与拓扑文件构建等流程。软件支持全原子（AA）、联合原子（UA）和粗粒化（CG）三种分辨率，并输出 GROMACS、LAMMPS 和 PDB 等常用格式。</p>
+    <img class="hero" src="main-workflow.jpg" alt="PolymerFFKit 主页面与工作流">
+  </section>
+
+  <section>
+    <h2>运行环境</h2>
+    <table>
+      <tr><th>项目</th><th>要求</th></tr>
+      <tr><td>操作系统</td><td>Windows 10/11 x64，Ubuntu 22.04+ x64，macOS 13+ Intel 或 Apple Silicon</td></tr>
+      <tr><td>处理器</td><td>Intel/AMD x86-64 或 Apple Silicon</td></tr>
+      <tr><td>内存</td><td>建议 16 GB 及以上</td></tr>
+      <tr><td>可选软件</td><td>GROMACS、LAMMPS、VMD、PyMOL，用于模拟验证和结构检查</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>安装与启动</h2>
+    <div class="grid">
+      <div class="box">
+        <h3>Windows</h3>
+        <p>解压 <code>PolymerFFKit-v1.0.0-windows-x64.zip</code> 后双击 <code>PolymerFFKit.exe</code>，或在 PowerShell 中运行：</p>
+        <pre>.\PolymerFFKit.exe</pre>
+      </div>
+      <div class="box">
+        <h3>Linux</h3>
+        <pre>tar -xzf PolymerFFKit-v1.0.0-linux-x64.tar.gz
+cd PolymerFFKit
+chmod +x PolymerFFKit
+./PolymerFFKit</pre>
+      </div>
+      <div class="box">
+        <h3>macOS</h3>
+        <p>解压 Intel 或 Apple Silicon 版本后打开 <code>PolymerFFKit.app</code>。首次运行如遇系统拦截，请到“系统设置 - 隐私与安全性”中允许打开。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>主界面与交互</h2>
+    <pre>1  Trajectory Analysis & Force Field Generation
+2  Polymer Sequence & Topology Builder
+0  Exit gracefully</pre>
+    <ul>
+      <li>输入菜单编号并按 Enter 进入功能。</li>
+      <li>文件路径输入支持 Tab 补全和拖拽文件。</li>
+      <li>带默认值的参数可直接按 Enter 使用默认值。</li>
+      <li>子菜单输入 <code>-1</code> 返回上级，主菜单输入 <code>0</code> 退出。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>模块一：轨迹分析与力场参数生成</h2>
+    <h3>Step 11：轨迹映射与提取</h3>
+    <p>读取多帧 XYZ 轨迹，生成 AA 提取轨迹、UA 映射轨迹或 CG 映射轨迹。UA 支持自动氢折叠或自定义映射；CG 需要提供映射规则 JSON；COM 使用质量中心，COG 使用几何中心。</p>
+    <pre>{
+  "custom_masses": {"C1": 12.011, "H1": 1.008},
+  "rules": [
+    {"name": "A", "atoms": [1, 2, 3]},
+    {"name": "B", "atoms": [4, 5, 6]}
+  ]
+}</pre>
+
+    <h3>Step 12：轨迹几何参数提取</h3>
+    <p>根据距离截断自动构建邻接关系，并统计键长、键角和二面角。CG 可从 0.8 nm 左右开始测试，AA 可从 0.2 nm 左右开始测试。</p>
+    <pre>Raw Analysis Data Dump (Grouped by Type)
+BOND_A-B: 0.3421,0.3510,0.3488
+ANGLE_A-B-C: 112.4000,114.2000,116.0000
+DIHEDRAL_A-B-C-D: -178.0000,60.1000,179.3000</pre>
+
+    <h3>Step 13：玻尔兹曼反演与拟合</h3>
+    <p>读取直方图 CSV，计算 PMF 并拟合 bonded 参数。数据列名必须以 <code>bond_</code>、<code>angle_</code> 或 <code>dihedral_</code> 开头，且每个数据列前一列为对应 bin 坐标。</p>
+    <pre>r_nm,bond_A-B,theta_deg,angle_A-B-C,phi_deg,dihedral_A-B-C-D
+0.280,12,90,2,-180,1
+0.300,45,100,8,-120,5
+0.320,80,110,30,-60,18</pre>
+
+    <h3>Step 14：非键参数分配</h3>
+    <p>整合映射单元、拟合结果、内置或自定义 ITP 力场库和外部电荷，输出 <code>ff_unified_config.json</code>。外部电荷文件格式如下：</p>
+    <pre>A 0.000
+B -0.100
+C 0.100</pre>
+  </section>
+
+  <section>
+    <h2>模块二：聚合物序列与拓扑构建</h2>
+    <h3>Step 21：聚合物序列生成</h3>
+    <p>根据单体类型、比例、聚合度和随机种子生成序列，并输出序列文件、组成分析文件和配置文件。</p>
+    <pre>{
+  "seed": 42,
+  "number_of_sequences": 3,
+  "strict": true,
+  "residue": ["A", "B", "C"],
+  "ratios": [5.0, 3.0, 2.0],
+  "degree of aggregation": 100
+}</pre>
+
+    <h3>Step 22：三维结构与拓扑构建</h3>
+    <p>读取序列、统一力场配置和 ITP 文件，使用几何构建算法生成三维坐标，输出 <code>CHAIN_1.pdb</code>、<code>CHAIN_1.data</code>、<code>CHAIN_1.itp</code> 和 <code>CHAIN_1.top</code>。</p>
+    <pre>&gt;Sequence_1|Len:12
+AABACBBCAABC
+&gt;Sequence_2|Len:12
+BBCACAAABBCA</pre>
+  </section>
+
+  <section>
+    <h2>模板文件</h2>
+    <p>发布包的 <code>templates</code> 目录提供 XYZ 轨迹、映射规则、拟合 CSV、外部电荷、序列配置、统一力场配置和 GROMACS ITP 等模板。</p>
+  </section>
+
+  <section>
+    <h2>常见问题</h2>
+    <h3>找不到内置力场库</h3>
+    <p>请确认发布包中存在 <code>data/ff_libraries</code>，并保持该目录与可执行程序在同一发布包内。</p>
+    <h3>Step 13 拟合失败</h3>
+    <p>检查 CSV 列名、bin 列位置、有效数据点数量和 PMF 阈值。</p>
+    <h3>Step 22 没有生成原子</h3>
+    <p>检查序列符号是否与 <code>atom_properties</code> 或 <code>atom_naming</code> 一致。</p>
+  </section>
+
+  <section>
+    <h2>许可、免责声明与联系方式</h2>
+    <p>PolymerFFKit v1.0.0 采用二进制发布方式，公开仓库不发布源代码。软件面向学术研究和教学评估场景，使用者应自行验证模拟参数、结构和拓扑结果。第三方力场文件、科学计算库和外部软件遵循其各自许可和引用要求。</p>
+    <p>机构：浙江大学化学系<br>联系方式：<a href="mailto:tongshi@zju.edu.cn">tongshi@zju.edu.cn</a></p>
+  </section>
+</main>
+</body>
+</html>

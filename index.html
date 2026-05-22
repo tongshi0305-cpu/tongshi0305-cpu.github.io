@@ -1,0 +1,129 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PolymerFFKit</title>
+  <meta name="description" content="PolymerFFKit is a binary-only toolkit for polymer force-field fitting and topology generation.">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="PolymerFFKit home">PolymerFFKit</a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="#downloads">Downloads</a>
+      <a href="#manuals">Manuals</a>
+      <a href="#workflow">Workflow</a>
+      <a href="#publish">GitHub Pages</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="PolymerFFKit overview">
+      <div class="hero-media" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="eyebrow">v1.0.0 路 Department of Chemistry, Zhejiang University</p>
+        <h1>PolymerFFKit</h1>
+        <p class="lead">A binary-only toolkit for polymer force-field parameter fitting, trajectory mapping, sequence generation, and topology export for GROMACS and LAMMPS workflows.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#downloads">Download Release</a>
+          <a class="button secondary" href="./manual/English_Manual.html">Read Manual</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="downloads">
+      <div class="section-heading">
+        <p class="eyebrow">Binary Release</p>
+        <h2>Downloads</h2>
+        <p>Public releases contain executables, manuals, templates, and runtime data. The application source code is not included.</p>
+      </div>
+      <div class="download-grid">
+        <article class="download-card">
+          <span class="platform">Windows x64</span>
+          <h3>Executable ZIP</h3>
+          <p>Use on Windows 10 or Windows 11. Unzip and run <code>PolymerFFKit.exe</code>.</p>
+          <a class="button compact" href="https://github.com/tongshi0305-cpu/shitong-polymerffkit/releases/latest/download/PolymerFFKit-v1.0.0-windows-x64.zip">Download .zip</a>
+        </article>
+        <article class="download-card">
+          <span class="platform">Linux x64</span>
+          <h3>Binary tarball</h3>
+          <p>Use on Ubuntu 22.04 or compatible x64 Linux systems.</p>
+          <a class="button compact" href="https://github.com/tongshi0305-cpu/shitong-polymerffkit/releases/latest/download/PolymerFFKit-v1.0.0-linux-x64.tar.gz">Download .tar.gz</a>
+        </article>
+        <article class="download-card">
+          <span class="platform">macOS Intel</span>
+          <h3>App ZIP</h3>
+          <p>For Intel Macs running macOS 13 or later.</p>
+          <a class="button compact" href="https://github.com/tongshi0305-cpu/shitong-polymerffkit/releases/latest/download/PolymerFFKit-v1.0.0-macos-x64.zip">Download .zip</a>
+        </article>
+        <article class="download-card">
+          <span class="platform">macOS Apple Silicon</span>
+          <h3>App ZIP</h3>
+          <p>For Apple Silicon Macs running macOS 13 or later.</p>
+          <a class="button compact" href="https://github.com/tongshi0305-cpu/shitong-polymerffkit/releases/latest/download/PolymerFFKit-v1.0.0-macos-arm64.zip">Download .zip</a>
+        </article>
+      </div>
+      <p class="note">To host files inside this repository instead of GitHub Releases, replace each download URL with <code>./downloads/filename</code> and upload the archives into <code>docs/downloads/</code>.</p>
+    </section>
+
+    <section class="section alt" id="manuals">
+      <div class="section-heading">
+        <p class="eyebrow">Documentation</p>
+        <h2>Manuals</h2>
+        <p>Both language versions are available as browser-readable HTML and downloadable PDF.</p>
+      </div>
+      <div class="manual-list">
+        <a href="./manual/涓枃鎵嬪唽.html">涓枃鎵嬪唽 HTML</a>
+        <a href="./manual/涓枃鎵嬪唽.pdf">涓枃鎵嬪唽 PDF</a>
+        <a href="./manual/English_Manual.html">English Manual HTML</a>
+        <a href="./manual/English_Manual.pdf">English Manual PDF</a>
+      </div>
+    </section>
+
+    <section class="section split" id="workflow">
+      <div>
+        <p class="eyebrow">Scientific Workflow</p>
+        <h2>From trajectories to simulation-ready files</h2>
+        <p>PolymerFFKit organizes the workflow into two modules: trajectory analysis with force-field generation, and sequence design with topology construction.</p>
+      </div>
+      <div class="workflow-panel">
+        <ol>
+          <li>Map AA trajectories to AA, UA, or CG representations.</li>
+          <li>Extract bond, angle, and dihedral distributions.</li>
+          <li>Fit bonded parameters through Boltzmann inversion.</li>
+          <li>Assign non-bonded parameters and export a unified JSON config.</li>
+          <li>Generate polymer sequences and export PDB, ITP, TOP, and DATA files.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="publish">
+      <div class="section-heading">
+        <p class="eyebrow">Deployment</p>
+        <h2>GitHub Pages Upload Layout</h2>
+        <p>Upload the contents of this <code>docs</code> directory as the Pages source. Keep source code, build folders, private spec files, and crash reports out of the public repository.</p>
+      </div>
+      <pre class="tree">docs/
+  index.html
+  style.css
+  assets/
+    main-workflow.jpg
+  manual/
+    涓枃鎵嬪唽.html
+    涓枃鎵嬪唽.pdf
+    English_Manual.html
+    English_Manual.pdf
+  downloads/
+    PolymerFFKit-v1.0.0-windows-x64.zip
+    PolymerFFKit-v1.0.0-linux-x64.tar.gz
+    PolymerFFKit-v1.0.0-macos-x64.zip
+    PolymerFFKit-v1.0.0-macos-arm64.zip</pre>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>PolymerFFKit v1.0.0 路 Department of Chemistry, Zhejiang University 路 <a href="mailto:tongshi@zju.edu.cn">tongshi@zju.edu.cn</a></p>
+  </footer>
+</body>
+</html>
