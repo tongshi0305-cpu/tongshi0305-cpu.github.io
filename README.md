@@ -14,10 +14,10 @@ Contact: tongshi@zju.edu.cn
 
 Use the GitHub Release assets:
 
-- [Windows x64 ZIP](https://github.com/liuychgroup/PolymerFFKit/releases/latest/download/PolymerFFKit-v1.0.0-windows-x64.zip)
-- [Linux x64 tar.gz](https://github.com/liuychgroup/PolymerFFKit/releases/latest/download/PolymerFFKit-v1.0.0-linux-x64.tar.gz)
-- [macOS Intel ZIP](https://github.com/liuychgroup/PolymerFFKit/releases/latest/download/PolymerFFKit-v1.0.0-macos-x64.zip)
-- [macOS Apple Silicon ZIP](https://github.com/liuychgroup/PolymerFFKit/releases/latest/download/PolymerFFKit-v1.0.0-macos-arm64.zip)
+- [Windows x64 ZIP](https://github.com/tongshi0305-cpu/tongshi0305-cpu.github.io/releases/download/v1.0.0/PolymerFFKit-v1.0.0-windows-x64.zip)
+- [Linux x64 tar.gz](https://github.com/tongshi0305-cpu/tongshi0305-cpu.github.io/releases/download/v1.0.0/PolymerFFKit-v1.0.0-linux-x64.tar.gz)
+- [macOS Intel ZIP](https://github.com/tongshi0305-cpu/tongshi0305-cpu.github.io/releases/download/v1.0.0/PolymerFFKit-v1.0.0-macos-x64.zip)
+- [macOS Apple Silicon ZIP](https://github.com/tongshi0305-cpu/tongshi0305-cpu.github.io/releases/download/v1.0.0/PolymerFFKit-v1.0.0-macos-arm64.zip)
 
 Windows quick start:
 
