@@ -145,7 +145,8 @@ h3 {
 }
 
 .hero-actions,
-.manual-list {
+.manual-list,
+.resource-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
@@ -201,13 +202,22 @@ h3 {
   color: var(--muted);
 }
 
-.download-grid {
+.download-grid,
+.resource-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
 }
 
+.download-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.resource-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .download-card,
+.resource-card,
 .workflow-panel {
   background: white;
   border: 1px solid var(--line);
@@ -236,6 +246,11 @@ code {
 .compact {
   width: 100%;
   margin-top: 8px;
+}
+
+.resource-actions .compact {
+  flex: 1 1 150px;
+  width: auto;
 }
 
 .note {
@@ -292,7 +307,8 @@ code {
 }
 
 @media (max-width: 980px) {
-  .download-grid {
+  .download-grid,
+  .resource-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -333,7 +349,8 @@ code {
     padding-bottom: 54px;
   }
 
-  .download-grid {
+  .download-grid,
+  .resource-grid {
     grid-template-columns: 1fr;
   }
 }

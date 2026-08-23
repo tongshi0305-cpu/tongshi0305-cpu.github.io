@@ -50,18 +50,22 @@ PolymerFFKit is menu driven. The main menu contains two workflow families.
 
 ## Documentation
 
-- [Project website](docs/index.html)
-- [中文手册 HTML](docs/manual/中文手册.html)
-- [中文手册 PDF](docs/manual/中文手册.pdf)
-- [English Manual HTML](docs/manual/English_Manual.html)
-- [English Manual PDF](docs/manual/English_Manual.pdf)
-- [Build and publish guide](BUILD_AND_PUBLISH.md)
-- [Basic input templates](input_templates-1)
-- [Workflow example templates](input_templates-2)
-- [Binary-only distribution notice](BINARY_ONLY_NOTICE.md)
-- [Public release checklist](PUBLIC_RELEASE_CHECKLIST.md)
+- [Project website](https://tongshi0305-cpu.github.io/)
+- [Chinese Manual HTML](manual/Chinese_Manual.html)
+- [Chinese Manual PDF](manual/Chinese_Manual.pdf)
+- [English Manual HTML](manual/English_Manual.html)
+- [English Manual PDF](manual/English_Manual.pdf)
+- [Chinese Screenshot Guide HTML](manual/PolymerFFKit-%E4%BD%BF%E7%94%A8%E6%88%AA%E5%9B%BE%E8%AF%B4%E6%98%8E%E4%B9%A6.html)
+- [Chinese Screenshot Guide PDF](manual/PolymerFFKit-%E4%BD%BF%E7%94%A8%E6%88%AA%E5%9B%BE%E8%AF%B4%E6%98%8E%E4%B9%A6.pdf)
+- [English Screenshot Guide HTML](manual/PolymerFFKit-Instructions_with_Screenshots.html)
+- [English Screenshot Guide PDF](manual/PolymerFFKit-Instructions_with_Screenshots.pdf)
 
-The GitHub Pages website lives in `docs/`. Enable GitHub Pages with `docs/` as the publishing source.
+## Example Downloads
+
+- [Basic input templates](downloads/input_templates-1.zip)
+- [Workflow example files](downloads/input_templates-2.zip)
+
+The GitHub Pages website is published from the repository root.
 
 ## Input Templates
 
