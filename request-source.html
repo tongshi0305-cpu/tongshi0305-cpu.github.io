@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>申请源码 · Request Source Code | PolymerFFKit</title>
+  <meta name="description" content="填写单位、邮箱和研究用途，向 PolymerFFKit 作者申请源代码。Request PolymerFFKit source code.">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./request-source.css">
+  <script src="./request-source.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./index.html">PolymerFFKit</a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="./index.html">首页 / Home</a>
+      <a href="./index.html#downloads">Downloads</a>
+      <a href="./index.html#manuals">Manuals</a>
+      <a href="./request-source.html" aria-current="page">申请源码 / Request Source</a>
+    </nav>
+  </header>
+  <main class="request-page">
+    <div class="section-heading">
+      <p class="eyebrow">Source Code Access</p>
+      <h1>申请源代码</h1>
+      <p class="request-subtitle">Request PolymerFFKit source code</p>
+      <p>请介绍你的单位和使用计划，以便作者了解申请并通过邮件与你联系。源码是否提供及使用条件，由作者回复确认。</p>
+      <p class="translation" lang="en">Tell us about your institution and intended use. The author will review your request and reply by email about availability and terms of use.</p>
+    </div>
+    <div class="request-layout">
+      <form id="source-request" class="request-card">
+        <p class="note">带 * 的项目为必填项 / * Required fields</p>
+        <div class="request-fields">
+          <div class="field">
+            <label for="full-name">姓名 / Full name *</label>
+            <input id="full-name" name="fullName" autocomplete="name" required maxlength="80">
+          </div>
+          <div class="field">
+            <label for="email">邮箱 / Email *</label>
+            <input id="email" name="email" type="email" autocomplete="email" required maxlength="160" aria-describedby="email-help">
+            <small id="email-help">请填写可接收回复的邮箱 / Use an email you can receive replies at.</small>
+          </div>
+          <div class="field full-width">
+            <label for="institution">单位（学校）/ Institution or university *</label>
+            <input id="institution" name="institution" autocomplete="organization" required maxlength="160">
+          </div>
+          <div class="field">
+            <label for="department">院系 / 课题组 · Department / Lab</label>
+            <input id="department" name="department" maxlength="120">
+          </div>
+          <div class="field">
+            <label for="role">身份 / 职务 · Role / Position</label>
+            <input id="role" name="role" autocomplete="organization-title" maxlength="80" placeholder="如：博士生 / e.g. PhD student">
+          </div>
+          <div class="field full-width">
+            <label for="purpose">研究方向及申请用途 / Research &amp; intended use *</label>
+            <textarea id="purpose" name="purpose" rows="5" required maxlength="600" placeholder="请简述研究方向、所需功能和源码的使用计划。 / Describe your research, the features needed, and how you plan to use the source code."></textarea>
+          </div>
+        </div>
+        <p class="note">填写的信息仅用于生成申请邮件，本页面不会保存表单内容。点击下方按钮不会自动发送邮件，请在邮件应用中确认发送。</p>
+        <p class="translation" lang="en">This page does not save your entries. It prepares an email; you must send it from your email app.</p>
+        <button class="button primary" type="submit" id="prepare-email" disabled>生成申请邮件 / Prepare email</button>
+        <noscript><p>请启用 JavaScript 使用表单，或将以上信息直接发送至 <a href="mailto:tongshi@zju.edu.cn">tongshi@zju.edu.cn</a>。</p></noscript>
+        <section id="email-result" class="email-result" hidden aria-labelledby="email-result-title">
+          <h2 id="email-result-title" tabindex="-1">邮件已准备好 / Email ready</h2>
+          <p>请检查内容，然后打开邮件应用发送。若无法打开，可复制内容到网页邮箱并发送至 <a href="mailto:tongshi@zju.edu.cn">tongshi@zju.edu.cn</a>。</p>
+          <p class="translation" lang="en">Review the message, then open your email app to send it. Alternatively, copy it into your webmail and send it to the address above.</p>
+          <label for="email-preview">邮件主题和正文 / Subject and message</label>
+          <textarea id="email-preview" rows="13" readonly></textarea>
+          <div class="request-actions">
+            <a id="open-email" class="button primary">打开邮件应用 / Open email app</a>
+            <button id="copy-email" class="button" type="button">复制内容 / Copy message</button>
+          </div>
+          <p id="copy-status" role="status" aria-live="polite"></p>
+        </section>
+      </form>
+      <aside class="request-card request-info" aria-label="申请说明 / Request information">
+        <p class="eyebrow">Contact the author</p>
+        <h2>联系作者</h2>
+        <a href="mailto:tongshi@zju.edu.cn">tongshi@zju.edu.cn</a>
+        <p>Department of Chemistry,<br>Zhejiang University</p>
+        <hr>
+        <h3>申请流程 / How it works</h3>
+        <ol>
+          <li>填写申请信息<br><span lang="en">Complete the form.</span></li>
+          <li>检查邮件并确认发送<br><span lang="en">Review and send your email.</span></li>
+          <li>等待作者邮件回复<br><span lang="en">Wait for the author's reply.</span></li>
+        </ol>
+        <p class="note">如需直接使用软件，可前往下载页面。<br><span lang="en">Ready to use the software?</span></p>
+        <a href="./index.html#downloads">下载程序 / Download release →</a>
+      </aside>
+    </div>
+  </main>
+  <footer class="footer"><p>PolymerFFKit v1.0.0 | Department of Chemistry, Zhejiang University | <a href="mailto:tongshi@zju.edu.cn">tongshi@zju.edu.cn</a></p></footer>
+</body>
+</html>
